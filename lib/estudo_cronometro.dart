@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 class EstudoCronometro extends StatefulWidget {
   final Estudo estudo;
 
-  EstudoCronometro({Key key, this.estudo}) : super(key: key);
+  EstudoCronometro({Key key, @required this.estudo}) : super(key: key);
 
   @override
   _EstudoCronometroState createState() => _EstudoCronometroState();

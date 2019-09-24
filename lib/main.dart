@@ -5,5 +5,6 @@ void main() {
   runApp(MaterialApp(
     title: 'Navigation Basics',
     home: DisciplinaListar(),
+    debugShowCheckedModeBanner: false,
   ));
 }

@@ -1,5 +1,7 @@
 import 'package:estuda_que_da/utils.dart';
 
+import 'estudo.dart';
+
 class Disciplina {
   int id;
   String nome;
@@ -14,17 +16,19 @@ class Disciplina {
     print('$id - $nome');
   }
   
-  static List<Disciplina> get stubs {
-    List<Disciplina> stubs = [];
-    stubs.add(new Disciplina(1, 'Português', Duration(hours: 0, minutes: 0, seconds: 15)));
-    stubs.add(new Disciplina(2, 'Direito Administrativo', Duration(hours: 1, minutes: 30)));
-    stubs.add(new Disciplina(3, 'Direito Constitucional', Duration(hours: 1, minutes: 30)));
-    stubs.add(new Disciplina(4, 'Direito Tributário', Duration(hours: 1, minutes: 30)));
-    stubs.add(new Disciplina(5, 'Contabilidade', Duration(hours: 1, minutes: 30)));
-    return stubs;
+  static List<Disciplina> get mocks {
+    List<Disciplina> mocks = [];
+    mocks.add(Disciplina(1, 'Português', Duration(hours: 0, minutes: 0, seconds: 15)));
+    mocks.add(Disciplina(2, 'Direito Administrativo', Duration(hours: 1, minutes: 30)));
+    mocks.add(Disciplina(3, 'Direito Constitucional', Duration(hours: 1, minutes: 30)));
+    mocks.add(Disciplina(4, 'Direito Tributário', Duration(hours: 1, minutes: 30)));
+    mocks.add(Disciplina(5, 'Contabilidade', Duration(hours: 1, minutes: 30)));
+    return mocks;
   }
 
   static List<Disciplina> getDisciplinas() {
-    return Disciplina.stubs;
+    return Disciplina.mocks;
   }
+
+  List<Estudo> getEstudos() => Estudo.getEstudos(this).where((e) => e.idDisciplina == id).toList();
 }

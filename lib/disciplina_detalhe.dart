@@ -1,3 +1,4 @@
+import 'package:estuda_que_da/estudo_listar.dart';
 import 'package:estuda_que_da/model/disciplina.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,28 @@ class DisciplinaDetalhe extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('${disciplina.nome}'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.collections_bookmark),
+              color: Colors.white,
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => EstudoListar(disciplina: disciplina))
+                );
+              },
+            )
+          ],
+        ),
+        floatingActionButton: FloatingActionButton.extended(
+          icon: Icon(Icons.book),
+          label: Text('Estudar'),
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => EstudoIniciar(disciplina: disciplina))
+            );
+          },
         ),
         body: Container(
           child: Padding(
@@ -29,15 +52,6 @@ class DisciplinaDetalhe extends StatelessWidget {
                 ),
               ),
               Text('Tempo/ciclo: ${disciplina.tempoCicloFormatado}'),
-              RaisedButton(
-                child: Text('Estudar'),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => EstudoIniciar(disciplina: disciplina))
-                  );
-                },
-              )
             ],
           ),
         )));

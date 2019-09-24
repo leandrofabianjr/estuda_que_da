@@ -1,11 +1,10 @@
 import 'package:estuda_que_da/model/estudo.dart';
-import 'package:estuda_que_da/utils.dart';
 import 'package:flutter/material.dart';
 
 class EstudoFinalizar extends StatefulWidget {
   Estudo estudo;
 
-  EstudoFinalizar({Key key, this.estudo}) : super(key: key);
+  EstudoFinalizar({Key key, @required this.estudo}) : super(key: key);
 
   @override
   _EstudoFinalizarState createState() => _EstudoFinalizarState();
