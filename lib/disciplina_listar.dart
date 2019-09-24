@@ -1,9 +1,9 @@
-import 'package:estuda_que_da/disciplina_create.dart';
-import 'package:estuda_que_da/disciplina_detail.dart';
+import 'package:estuda_que_da/disciplina_criar.dart';
+import 'package:estuda_que_da/disciplina_detalhe.dart';
 import 'package:estuda_que_da/model/disciplina.dart';
 import 'package:flutter/material.dart';
 
-class DisciplinaList extends StatelessWidget {
+class DisciplinaListar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,7 +17,7 @@ class DisciplinaList extends StatelessWidget {
         onPressed: () async {
           var d = await Navigator.push<Disciplina>(
             context,
-            MaterialPageRoute(builder: (context) => DisciplinaCreate()),
+            MaterialPageRoute(builder: (context) => DisciplinaCriar()),
           );
           print('${d.id} - ${d.nome}');
         },
@@ -49,7 +49,7 @@ class _ListagemState extends State<Listagem> {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => DisciplinaDetail(disciplina: d)),
+            MaterialPageRoute(builder: (context) => DisciplinaDetalhe(disciplina: d)),
           );
 //          Scaffold.of(context)..removeCurrentSnackBar()..showSnackBar(SnackBar(content: Text('${nova.id} - ${nova.nome}')));
         },
